@@ -50,7 +50,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public boolean isProductNameExist(String productName) {
+    public boolean isProductExist(String productName) {
         for (Product product : products) {
             if (product.getProductName().equals(productName)) {
                 return true;
@@ -60,7 +60,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public boolean isProductIdExist(Long id) {
+    public boolean isProductExist(Long id) {
         for (Product product : products) {
             if (product.getId().equals(id)) {
                 return true;

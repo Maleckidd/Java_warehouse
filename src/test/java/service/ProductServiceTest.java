@@ -94,7 +94,7 @@ public class ProductServiceTest {
 
         ProductServiceImpl productService = new ProductServiceImpl(products);
 
-        Assert.assertTrue(productService.isProductNameExist("Skirt"));
+        Assert.assertTrue(productService.isProductExist("Skirt"));
     }
 
     @Test
@@ -105,7 +105,7 @@ public class ProductServiceTest {
 
         ProductServiceImpl productService = new ProductServiceImpl(products);
 
-        Assert.assertFalse(productService.isProductNameExist("Skirt"));
+        Assert.assertFalse(productService.isProductExist("Skirt"));
     }
 
     @Test
@@ -116,7 +116,7 @@ public class ProductServiceTest {
 
         ProductServiceImpl productService = new ProductServiceImpl(products);
 
-        Assert.assertTrue(productService.isProductIdExist(1L));
+        Assert.assertTrue(productService.isProductExist(1L));
     }
 
     @Test
@@ -127,7 +127,7 @@ public class ProductServiceTest {
 
         ProductServiceImpl productService = new ProductServiceImpl(products);
 
-        Assert.assertFalse(productService.isProductIdExist(2L));
+        Assert.assertFalse(productService.isProductExist(2L));
     }
 
 
