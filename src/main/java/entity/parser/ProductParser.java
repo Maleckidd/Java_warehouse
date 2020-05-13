@@ -31,7 +31,7 @@ public class ProductParser {
         return new Product(id, productName, price, weight, color, productCount);
     }
 
-    private static Boots convToBoots(String stringToConv){
+    private static Boots convToBoots(String stringToConv) {
         String[] productInformation = stringToConv.split(Product.PRODUCT_SEPARATOR);
 
         Long id = Long.parseLong(productInformation[0]);
@@ -46,8 +46,8 @@ public class ProductParser {
         return new Boots(id, productName, price, weight, color, productCount, size, isNaturalSkin);
     }
 
-    private static Cloth convToCloth(String stringToConv){
-        String [] productInformations = stringToConv.split(Product.PRODUCT_SEPARATOR);
+    private static Cloth convToCloth(String stringToConv) {
+        String[] productInformations = stringToConv.split(Product.PRODUCT_SEPARATOR);
 
         Long id = Long.parseLong(productInformations[0]);
         String productName = productInformations[1];
