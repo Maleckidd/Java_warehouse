@@ -1,5 +1,7 @@
 package service;
 
+import entity.Boots;
+import entity.Cloth;
 import entity.Product;
 import org.junit.Assert;
 import org.junit.Test;
@@ -14,7 +16,8 @@ public class ProductServiceTest {
 
         List<Product> products = new ArrayList<Product>();
         products.add(new Product(1L, "Skirt", 99f, 100f, "white", 1));
-        products.add(new Product(2L, "Skirt", 99f, 100f, "blue", 2));
+        products.add(new Cloth(2L, "Skirt", 99f, 100f, "blue", 2, "M", "cotton"));
+        products.add(new Boots(2L, "Skirt", 99f, 100f, "blue", 2, 42, true));
 
         ProductServiceImpl productService = new ProductServiceImpl(products);
         List<Product> productsFromTestClass = productService.getAllProducts();

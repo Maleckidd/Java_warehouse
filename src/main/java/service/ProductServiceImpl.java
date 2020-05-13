@@ -43,7 +43,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public boolean isProductAvailable(String productName) {
         for (Product product : products) {
-            if (product.getProductName().equals(productName) && product.getProductCount() > 0) {
+            if (product.getProductCount() > 0) {
                 return true;
             }
         }
