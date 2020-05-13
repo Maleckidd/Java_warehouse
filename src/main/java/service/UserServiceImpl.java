@@ -30,9 +30,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void removeUserById(Long userId) {
-        for(int i = 0; i < users.size(); i++) {
+        for (int i = 0; i < users.size(); i++) {
             User userFromList = users.get(i);
-            if(userFromList.getId() == userId) {
+            if (userFromList.getId() == userId) {
                 users.remove(i);
                 break;
             }

@@ -17,6 +17,7 @@ public class ProductParser {
         return null;
     }
 
+
     public static Product convToProduct(String stringToConv) {
         String[] productInformation = stringToConv.split(Product.PRODUCT_SEPARATOR);
 

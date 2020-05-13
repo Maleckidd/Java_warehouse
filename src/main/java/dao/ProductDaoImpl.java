@@ -78,6 +78,7 @@ public class ProductDaoImpl implements ProductDao {
 
         String readOneLineFromFile = bufferedReader.readLine();
 
+
         while (readOneLineFromFile != null){
            Product product = ProductParser.stringToProduct(readOneLineFromFile, productType);
            if (product != null)

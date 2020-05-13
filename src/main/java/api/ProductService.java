@@ -18,5 +18,4 @@ public interface ProductService {
 
     boolean isProductExist(Long id);
 
-
 }

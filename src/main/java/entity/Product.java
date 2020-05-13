@@ -1,6 +1,7 @@
 package entity;
 
 public class Product {
+
     public final static String PRODUCT_SEPARATOR = "#";
 
     private Long id;

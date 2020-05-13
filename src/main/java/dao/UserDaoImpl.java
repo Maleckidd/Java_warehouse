@@ -63,9 +63,9 @@ public class UserDaoImpl implements UserDao {
     public User getUserByLogin(String login) throws IOException {
         List<User> users = getAllUsers();
 
-        for(User user: users){
-            if(user.getLogin().equals(login)){
-             return user;
+        for (User user : users) {
+            if (user.getLogin().equals(login)) {
+                return user;
             }
         }
         return null;
@@ -75,8 +75,8 @@ public class UserDaoImpl implements UserDao {
     public User getUserById(Long userId) throws IOException {
         List<User> users = getAllUsers();
 
-        for(User user: users){
-            if(user.getId().equals(userId)){
+        for (User user : users) {
+            if (user.getId().equals(userId)) {
                 return user;
             }
         }
@@ -87,8 +87,8 @@ public class UserDaoImpl implements UserDao {
     public void removeUserByLogin(String login) throws IOException {
         List<User> users = getAllUsers();
 
-        for(User user: users){
-            if(user.getLogin().equals(login)){
+        for (User user : users) {
+            if (user.getLogin().equals(login)) {
                 users.remove(user.getId());
             }
         }
@@ -97,11 +97,11 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public void removeUserById(Long userId) throws IOException{
+    public void removeUserById(Long userId) throws IOException {
         List<User> users = getAllUsers();
 
-        for(User user: users){
-            if(user.getId().equals(userId)){
+        for (User user : users) {
+            if (user.getId().equals(userId)) {
                 users.remove(user.getId());
             }
         }
