@@ -1,7 +1,6 @@
 package dao;
 
 import api.ProductDao;
-
 import entity.Product;
 import entity.parser.ProductParser;
 
@@ -11,7 +10,6 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.ClientInfoStatus;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,12 +18,15 @@ public class ProductDaoImpl implements ProductDao {
     private final String fileName;
     private final String productType;
 
-    public ProductDaoImpl(String fileName, String productType) throws IOException {
+    public ProductDaoImpl(String fileName, String productType) {
         this.fileName = fileName;
         this.productType = productType;
-        FileOutputStream fileOutputStream = new FileOutputStream(fileName, false);
+        try {
+            FileOutputStream fileOutputStream = new FileOutputStream(fileName, false);
+        } catch (IOException e){
+            e.printStackTrace();
+        }
     }
-
     @Override
     public void saveProduct(Product product) throws IOException {
         List<Product> products = getAllProducts();

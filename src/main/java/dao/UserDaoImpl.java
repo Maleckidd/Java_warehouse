@@ -3,6 +3,8 @@ package dao;
 import api.UserDao;
 import entity.User;
 import entity.parser.UserParser;
+import utils.FileUtils;
+import validator.UserValidator;
 
 import java.io.BufferedReader;
 import java.io.FileOutputStream;
@@ -15,11 +17,24 @@ import java.util.List;
 
 public class UserDaoImpl implements UserDao {
 
-    String fileName;
+    private static final String fileName = "users.data";
+    private static UserDaoImpl instance = null;
 
-    public UserDaoImpl(String fileName) throws IOException {
-        this.fileName = fileName;
-        FileOutputStream fileOutputStream = new FileOutputStream(fileName, false);
+    private UserDaoImpl(){
+        try {
+            FileUtils.createNewFile(fileName);
+        } catch (IOException e){
+            System.out.println("File path error");
+            System.exit(-1);
+        }
+    }
+
+    public static UserDaoImpl getInstance() {
+        if (instance == null) {
+            instance = new UserDaoImpl();
+        }
+
+        return instance;
     }
 
     @Override
