@@ -2,6 +2,9 @@ package entity;
 
 
 public class Cloth extends Product {
+
+    public final static char PRODUCT_TYPE = 'C';
+
     private String size;
     private String material;
 
@@ -19,8 +22,12 @@ public class Cloth extends Product {
         this.material = material;
     }
 
+    public String getBasicClothString() {
+        return super.toString() + Product.PRODUCT_SEPARATOR + size + Product.PRODUCT_SEPARATOR + material;
+    }
+
     @Override
     public String toString() {
-        return super.toString() + Product.PRODUCT_SEPARATOR + size + Product.PRODUCT_SEPARATOR + material;
+        return PRODUCT_TYPE + PRODUCT_SEPARATOR + getBasicClothString();
     }
 }

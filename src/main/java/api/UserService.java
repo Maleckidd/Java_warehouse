@@ -12,8 +12,12 @@ public interface UserService {
 
     List<User> getAllUsers() throws IOException;
 
-    void addUser(User user) throws UserShortLengthPasswordException, UserShortLengthLoginException, UserLoginAlreadyExistException, IOException;
-
+    boolean addUser(User user);
 
     void removeUserById(Long userId) throws IOException;
+
+    User getUserById(Long userId) throws IOException;
+    User getUserByLogin(String login) throws IOException;
+
+    boolean isCorrectLoginAndPassword(String login, String password);
 }

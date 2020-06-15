@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserServiceTest {
-
+/*
     @Test
     public void testGetAllUsers() {
 
@@ -55,5 +55,5 @@ public class UserServiceTest {
 
     }
 
-
+*/
 }

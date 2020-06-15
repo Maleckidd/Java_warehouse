@@ -3,6 +3,7 @@ package service;
 import api.ProductService;
 import dao.ProductDaoImpl;
 import entity.Product;
+import validator.ProductValidator;
 
 import java.io.IOException;
 import java.util.List;
@@ -10,12 +11,14 @@ import java.util.List;
 public class ProductServiceImpl implements ProductService {
 
     private static ProductServiceImpl instance = null;
-    private  ProductDaoImpl productDao = new ProductDaoImpl("product.data", "PRODUCT");
+    private ProductDaoImpl productDao = ProductDaoImpl.getInstance("product.data");
+    private ProductValidator productValidator = ProductValidator.getInstance();
 
-    public ProductServiceImpl() {}
+    public ProductServiceImpl() {
+    }
 
-    public static ProductServiceImpl getInstance(){
-        if(instance == null){
+    public static ProductServiceImpl getInstance() {
+        if (instance == null) {
             instance = new ProductServiceImpl();
         }
         return instance;
@@ -33,28 +36,33 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product getProductByName(String productName) throws IOException {
-        return productDao.getProductByProductName(productName);
+        for (Product product : getAllProducts()) {
+            if (product.getProductName().equals(productName)) {
+                return product;
+            }
+        }
+        return null;
     }
 
     @Override
-    public boolean isProductAvailable(String productName)  {
-        try{
-            for(Product product : getAllProducts()){
-                if(isProductExist(productName) && product.getProductCount() > 0)
+    public boolean isProductOnStock(String productName) {
+        try {
+            for (Product product : getAllProducts()) {
+                if (isProductExist(productName) && product.getProductCount() > 0)
                     return true;
             }
-        } catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
         return false;
     }
 
     @Override
-    public boolean isProductExist(String productName)  {
+    public boolean isProductExist(String productName) {
         Product product = null;
-        try{
-            product = productDao.getProductByProductName(productName);
-        } catch (IOException e){
+        try {
+            product = getProductByName(productName);
+        } catch (IOException e) {
             e.printStackTrace();
         }
         if (product == null) return false;
@@ -64,12 +72,24 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public boolean isProductExist(Long id) {
         Product product = null;
-        try{
-            product = productDao.getProductById(id);
-        } catch (IOException e){
+        try {
+            product = getAllProducts().get(id.intValue());
+        } catch (IOException e) {
             e.printStackTrace();
         }
         if (product == null) return false;
         return true;
+    }
+
+    @Override
+    public boolean saveProduct(Product product) {
+        try {
+            if (productValidator.isValidate(product))
+                productDao.saveProduct(product);
+            return true;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return false;
     }
 }

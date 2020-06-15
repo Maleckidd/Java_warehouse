@@ -64,38 +64,12 @@ public class UserDaoImpl implements UserDao {
 
         while (readOneLineFromFile != null) {
             User user = UserParser.stringToUser(readOneLineFromFile);
-
-            if (user != null) {
-                users.add(user);
-            }
+            users.add(user);
+            readOneLineFromFile = bufferedReader.readLine();
         }
 
         bufferedReader.close();
         return users;
-    }
-
-    @Override
-    public User getUserByLogin(String login) throws IOException {
-        List<User> users = getAllUsers();
-
-        for (User user : users) {
-            if (user.getLogin().equals(login)) {
-                return user;
-            }
-        }
-        return null;
-    }
-
-    @Override
-    public User getUserById(Long userId) throws IOException {
-        List<User> users = getAllUsers();
-
-        for (User user : users) {
-            if (user.getId().equals(userId)) {
-                return user;
-            }
-        }
-        return null;
     }
 
     @Override
@@ -104,7 +78,7 @@ public class UserDaoImpl implements UserDao {
 
         for (User user : users) {
             if (user.getLogin().equals(login)) {
-                users.remove(user.getId());
+                users.remove(user);
             }
         }
 
@@ -117,7 +91,7 @@ public class UserDaoImpl implements UserDao {
 
         for (User user : users) {
             if (user.getId().equals(userId)) {
-                users.remove(user.getId());
+                users.remove(user);
             }
         }
         saveUsers(users);

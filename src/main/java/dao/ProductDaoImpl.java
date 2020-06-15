@@ -16,11 +16,18 @@ import java.util.List;
 public class ProductDaoImpl implements ProductDao {
 
     private final String fileName;
-    private final String productType;
+    private static ProductDaoImpl instance = null;
 
-    public ProductDaoImpl(String fileName, String productType) {
+    public static ProductDaoImpl getInstance(String fileName){
+        if(instance == null){
+            instance = new ProductDaoImpl(fileName);
+        }
+        return instance;
+    }
+
+    public ProductDaoImpl(String fileName) {
         this.fileName = fileName;
-        this.productType = productType;
+
         try {
             FileOutputStream fileOutputStream = new FileOutputStream(fileName, false);
         } catch (IOException e){
@@ -81,7 +88,7 @@ public class ProductDaoImpl implements ProductDao {
 
 
         while (readOneLineFromFile != null){
-           Product product = ProductParser.stringToProduct(readOneLineFromFile, productType);
+           Product product = ProductParser.stringToProduct(readOneLineFromFile);
            if (product != null)
            {
                 products.add(product);
@@ -91,27 +98,4 @@ public class ProductDaoImpl implements ProductDao {
         return products;
     }
 
-    @Override
-    public Product getProductById(Long productId) throws IOException {
-        List<Product> products = getAllProducts();
-
-        for(Product product: products){
-            if (product.getId().equals(productId)){
-                return product;
-            }
-        }
-        return null;
-    }
-
-    @Override
-    public Product getProductByProductName(String productName) throws IOException {
-        List<Product> products = getAllProducts();
-
-        for(Product product: products){
-            if (product.getProductName().equals(productName)){
-                return product;
-            }
-        }
-        return null;
-    }
 }
