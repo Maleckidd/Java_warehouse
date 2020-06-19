@@ -86,6 +86,7 @@ public class ProductServiceImpl implements ProductService {
         try {
             if (productValidator.isValidate(product))
                 productDao.saveProduct(product);
+            System.out.println("Product added successful");
             return true;
         } catch (Exception e) {
             System.out.println(e.getMessage());

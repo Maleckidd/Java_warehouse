@@ -31,16 +31,11 @@ public class ProductValidator {
     }
 
     public boolean isPriceBiggerThenZero(Product product){
-        return product.getPrice() > 0;
+        return product.getPrice() < 0;
     }
 
-    public boolean isCountPositive(Product product){
-        return product.getProductCount() > 0;
-    }
-
-    public boolean isWeightBiggerThenZero(Product product){
-        return product.getWeight() > 0;
-    }
+    public boolean isCountPositive(Product product){ return product.getProductCount() < 0; }
+    public boolean isWeightBiggerThenZero(Product product){ return product.getWeight() < 0; }
 
 
 

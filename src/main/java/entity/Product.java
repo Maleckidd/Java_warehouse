@@ -60,6 +60,6 @@ public class Product {
 
     @Override
     public String toString() {
-        return PRODUCT_TYPE + PRODUCT_SEPARATOR + getBasicProductString();
+        return getBasicProductString();
     }
 }

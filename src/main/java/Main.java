@@ -66,19 +66,19 @@ public class Main {
                                     x = scan.nextInt();
                                     switch (x) {
                                         case 1:
-                                            System.out.println("Enter product details id#productName#price#weight#color#productCount#size#isNaturalSkin");
+                                            System.out.println("Enter boots details id#productName#price#weight#color#productCount#size#isNaturalSkin");
                                             String boots = scan.next();
-                                            productService.saveProduct(ProductParser.stringToProduct(boots));
+                                            productService.saveProduct(ProductParser.stringToProduct("B#" + boots));
                                             break;
                                         case 2:
-                                            System.out.println("Enter product details id#productName#price#weight#color#productCount#size#material");
+                                            System.out.println("Enter cloth details id#productName#price#weight#color#productCount#size#material");
                                             String cloth = scan.next();
-                                            productService.saveProduct(ProductParser.stringToProduct(cloth));
+                                            productService.saveProduct(ProductParser.stringToProduct("C#" + cloth));
                                             break;
                                         case 3:
                                             System.out.println("Enter product details id#productName#price#weight#color#productCount");
                                             String product = scan.next();
-                                            productService.saveProduct(ProductParser.stringToProduct(product));
+                                            productService.saveProduct(ProductParser.stringToProduct("P#" + product));
                                             break;
                                         default:
                                             System.out.println("Entered value incorrect exiting program...");

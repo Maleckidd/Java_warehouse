@@ -46,7 +46,7 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void saveUsers(List<User> users) throws IOException {
-        FileOutputStream fileOutputStream = new FileOutputStream(fileName, true);
+        FileOutputStream fileOutputStream = new FileOutputStream(fileName, false);
         PrintWriter printWriter = new PrintWriter(fileOutputStream);
 
         for (User user : users) {
