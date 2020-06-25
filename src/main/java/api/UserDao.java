@@ -14,4 +14,5 @@ public interface UserDao {
     void removeUserById(Long id) throws IOException;
 
     List<User> getAllUsers() throws IOException;
+    User getUserByLogin(String login) throws IOException;
 }

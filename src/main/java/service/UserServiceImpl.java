@@ -42,7 +42,7 @@ public class UserServiceImpl implements UserService {
     public boolean addUser(User user) {
         try {
             if (isLoginExist(user.getLogin())) {
-                throw new UserLoginAlreadyExistException("This login already exist");
+                throw new UserLoginAlreadyExistException();
             }
             if (userValidator.isValidate(user)) {
                 userDao.saveUser(user);

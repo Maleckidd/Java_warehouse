@@ -57,8 +57,8 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public List<User> getAllUsers() throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new FileReader(fileName));
         List<User> users = new ArrayList<>();
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(fileName));
 
         String readOneLineFromFile = bufferedReader.readLine();
 
@@ -95,5 +95,17 @@ public class UserDaoImpl implements UserDao {
             }
         }
         saveUsers(users);
+    }
+
+    @Override
+    public User getUserByLogin(String login) throws IOException {
+        List<User> users = getAllUsers();
+        for (User user : users) {
+            if (user != null) {
+                if (user.getLogin().equals(login))
+                    return user;
+            }
+        }
+        return null;
     }
 }

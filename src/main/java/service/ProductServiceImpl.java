@@ -84,10 +84,10 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public boolean saveProduct(Product product) {
         try {
-            if (productValidator.isValidate(product))
+            if (productValidator.isValidate(product)){
                 productDao.saveProduct(product);
-            System.out.println("Product added successful");
-            return true;
+                System.out.println("Product added successful");
+            return true;}
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

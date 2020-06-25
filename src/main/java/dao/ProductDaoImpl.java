@@ -34,6 +34,7 @@ public class ProductDaoImpl implements ProductDao {
             e.printStackTrace();
         }
     }
+
     @Override
     public void saveProduct(Product product) throws IOException {
         List<Product> products = getAllProducts();
@@ -43,13 +44,12 @@ public class ProductDaoImpl implements ProductDao {
 
     @Override
     public void saveProducts(List<Product> products) throws IOException {
-        FileOutputStream fileOutputStream = new FileOutputStream(fileName, true);
+        FileOutputStream fileOutputStream = new FileOutputStream(fileName, false);
         PrintWriter printWriter = new PrintWriter(fileOutputStream);
 
         for (Product product : products) {
-            printWriter.println(product.toString());
+            printWriter.println(product);
         }
-
         printWriter.close();
     }
 
@@ -81,7 +81,7 @@ public class ProductDaoImpl implements ProductDao {
 
     @Override
     public List<Product> getAllProducts() throws IOException {
-        List<Product> products = new ArrayList<Product>();
+        List<Product> products = new ArrayList<>();
         BufferedReader bufferedReader = new BufferedReader(new FileReader(fileName));
 
         String readOneLineFromFile = bufferedReader.readLine();
@@ -89,10 +89,9 @@ public class ProductDaoImpl implements ProductDao {
 
         while (readOneLineFromFile != null){
            Product product = ProductParser.stringToProduct(readOneLineFromFile);
-           if (product != null)
-           {
-                products.add(product);
-            }
+           products.add(product);
+           readOneLineFromFile = bufferedReader.readLine();
+
         }
         bufferedReader.close();
         return products;

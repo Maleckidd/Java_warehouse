@@ -53,16 +53,16 @@ public class ProductParser {
     }
 
     private static Cloth convToCloth(String stringToConv) {
-        String[] productInformations = stringToConv.split(Product.PRODUCT_SEPARATOR);
+        String[] productInformation = stringToConv.split(Product.PRODUCT_SEPARATOR);
 
-        Long id = Long.parseLong(productInformations[1]);
-        String productName = productInformations[2];
-        Float price = Float.parseFloat(productInformations[3]);
-        Float weight = Float.parseFloat(productInformations[4]);
-        String color = productInformations[5];
-        int productCount = Integer.parseInt(productInformations[6]);
-        String size = productInformations[7];
-        String material = productInformations[8];
+        Long id = Long.parseLong(productInformation[1]);
+        String productName = productInformation[2];
+        Float price = Float.parseFloat(productInformation[3]);
+        Float weight = Float.parseFloat(productInformation[4]);
+        String color = productInformation[5];
+        int productCount = Integer.parseInt(productInformation[6]);
+        String size = productInformation[7];
+        String material = productInformation[8];
 
         return new Cloth(id, productName, price, weight, color, productCount, size, material);
     }

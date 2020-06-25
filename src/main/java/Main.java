@@ -16,9 +16,11 @@ public class Main {
     }
 
     public static void productTypeMenu() {
-        System.out.println("1 - Dodaj buty");
-        System.out.println("2 - Dodaj ubrania");
-        System.out.println("3 - Inne");
+        System.out.println("1 - Add boots");
+        System.out.println("2 - Add cloths");
+        System.out.println("3 - Others");
+        System.out.println("0 - Exit program");
+
     }
 
     public static void main(String[] args) {
@@ -65,6 +67,10 @@ public class Main {
                                     productTypeMenu();
                                     x = scan.nextInt();
                                     switch (x) {
+                                        case 0:
+                                            System.out.println("Exiting program...");
+                                            System.exit(0);
+                                            break;
                                         case 1:
                                             System.out.println("Enter boots details id#productName#price#weight#color#productCount#size#isNaturalSkin");
                                             String boots = scan.next();

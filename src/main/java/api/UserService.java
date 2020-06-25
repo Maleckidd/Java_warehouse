@@ -10,12 +10,11 @@ import java.util.List;
 
 public interface UserService {
 
-    List<User> getAllUsers() throws IOException;
-
     boolean addUser(User user);
 
     void removeUserById(Long userId) throws IOException;
 
+    List<User> getAllUsers() throws IOException;
     User getUserById(Long userId) throws IOException;
     User getUserByLogin(String login) throws IOException;
 

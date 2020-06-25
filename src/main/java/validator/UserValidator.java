@@ -9,6 +9,7 @@ import exception.UserShortLengthPasswordException;
 import service.UserServiceImpl;
 
 import java.io.IOException;
+import java.util.List;
 
 public class UserValidator {
 
@@ -38,11 +39,12 @@ public class UserValidator {
         return true;
     }
 
-    public boolean isPasswordEnoughLong(String password) {
+    private boolean isPasswordEnoughLong(String password) {
         return password.length() < MIN_LENGTH_PASSWORD;
     }
 
-    public boolean isLoginEnoughLong(String login) {
+    private boolean isLoginEnoughLong(String login) {
         return login.length() < MIN_LENGTH_LOGIN;
     }
+
 }
