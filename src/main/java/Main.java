@@ -32,7 +32,7 @@ public class Main {
 
         try {
             System.out.println(userService.getAllUsers());
-        } catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 
@@ -114,14 +114,14 @@ public class Main {
                     String user = id + User.USER_SEPARATOR + regLogin + User.USER_SEPARATOR + regPassword;
                     User parsedUser = UserParser.stringToUser(user);
                     System.out.println(parsedUser);
-                    if (userRegisterLogin.registerUser(parsedUser)){
-                    System.out.println("Registration successful");}
+                    if (userRegisterLogin.registerUser(parsedUser)) {
+                        System.out.println("Registration successful");
+                    }
                     break;
                 default:
                     System.out.println("Entered value incorrect exiting program...");
                     System.exit(0);
             }
-
         }
         while (true);
     }

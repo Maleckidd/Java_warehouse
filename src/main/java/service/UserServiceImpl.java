@@ -62,7 +62,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public User getUserById(Long userId) {
         try {
-        List<User> users = getAllUsers();
+            List<User> users = getAllUsers();
             for (User user : users) {
                 if (user.getId().equals(userId)) {
                     return user;

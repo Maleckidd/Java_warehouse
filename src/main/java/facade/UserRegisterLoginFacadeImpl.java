@@ -33,7 +33,7 @@ public class UserRegisterLoginFacadeImpl implements UserRegisterLoginFacade {
 
     @Override
     public boolean loginUser(String login, String password) {
-        if(userService.isCorrectLoginAndPassword(login, password)){
+        if (userService.isCorrectLoginAndPassword(login, password)) {
             return true;
         }
         return false;

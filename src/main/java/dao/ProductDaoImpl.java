@@ -18,8 +18,8 @@ public class ProductDaoImpl implements ProductDao {
     private final String fileName;
     private static ProductDaoImpl instance = null;
 
-    public static ProductDaoImpl getInstance(String fileName){
-        if(instance == null){
+    public static ProductDaoImpl getInstance(String fileName) {
+        if (instance == null) {
             instance = new ProductDaoImpl(fileName);
         }
         return instance;
@@ -30,7 +30,7 @@ public class ProductDaoImpl implements ProductDao {
 
         try {
             FileOutputStream fileOutputStream = new FileOutputStream(fileName, false);
-        } catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -57,8 +57,8 @@ public class ProductDaoImpl implements ProductDao {
     public void removeProductById(String productId) throws IOException {
         List<Product> products = getAllProducts();
 
-        for(int i = 0; i < products.size(); i++){
-            if(products.get(i).getId().equals(productId)){
+        for (int i = 0; i < products.size(); i++) {
+            if (products.get(i).getId().equals(productId)) {
                 products.remove(i);
             }
         }
@@ -70,8 +70,8 @@ public class ProductDaoImpl implements ProductDao {
     public void removeProductByName(String productName) throws IOException {
         List<Product> products = getAllProducts();
 
-        for(int i=0; i < products.size(); i++){
-            if(products.get(i).getProductName().equals(productName)){
+        for (int i = 0; i < products.size(); i++) {
+            if (products.get(i).getProductName().equals(productName)) {
                 products.remove(i);
             }
         }
@@ -87,10 +87,10 @@ public class ProductDaoImpl implements ProductDao {
         String readOneLineFromFile = bufferedReader.readLine();
 
 
-        while (readOneLineFromFile != null){
-           Product product = ProductParser.stringToProduct(readOneLineFromFile);
-           products.add(product);
-           readOneLineFromFile = bufferedReader.readLine();
+        while (readOneLineFromFile != null) {
+            Product product = ProductParser.stringToProduct(readOneLineFromFile);
+            products.add(product);
+            readOneLineFromFile = bufferedReader.readLine();
 
         }
         bufferedReader.close();

@@ -23,7 +23,7 @@ public class Boots extends Product {
     }
 
     public String getBasicBootsString() {
-        return  super.toString() + Product.PRODUCT_SEPARATOR + size + Product.PRODUCT_SEPARATOR + isNaturalSkin;
+        return super.toString() + Product.PRODUCT_SEPARATOR + size + Product.PRODUCT_SEPARATOR + isNaturalSkin;
     }
 
     @Override

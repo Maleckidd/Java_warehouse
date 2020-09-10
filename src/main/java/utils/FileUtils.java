@@ -7,7 +7,7 @@ import java.io.PrintWriter;
 
 public class FileUtils {
 
-    public static void createNewFile(String fileName) throws IOException{
+    public static void createNewFile(String fileName) throws IOException {
         File file = new File(fileName);
         file.createNewFile();
     }

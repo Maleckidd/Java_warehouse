@@ -19,7 +19,7 @@ public class User {
         return password;
     }
 
-    public User(Long id, String login, String password){
+    public User(Long id, String login, String password) {
 
         this.id = id;
         this.login = login;
@@ -29,6 +29,6 @@ public class User {
 
     @Override
     public String toString() {
-        return  id + USER_SEPARATOR + login + USER_SEPARATOR + password;
+        return id + USER_SEPARATOR + login + USER_SEPARATOR + password;
     }
 }

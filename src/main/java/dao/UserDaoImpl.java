@@ -20,10 +20,10 @@ public class UserDaoImpl implements UserDao {
     private static final String fileName = "users.data";
     private static UserDaoImpl instance = null;
 
-    private UserDaoImpl(){
+    private UserDaoImpl() {
         try {
             FileUtils.createNewFile(fileName);
-        } catch (IOException e){
+        } catch (IOException e) {
             System.out.println("File path error");
             System.exit(-1);
         }

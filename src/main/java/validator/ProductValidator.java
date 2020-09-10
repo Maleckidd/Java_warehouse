@@ -5,8 +5,6 @@ import exception.ProductCountNegativeException;
 import exception.ProductNameEmptyException;
 import exception.ProductPriceNoPositiveException;
 import exception.ProductWeightNoPositiveException;
-import service.ProductServiceImpl;
-import sun.jvm.hotspot.types.JBooleanField;
 
 public class ProductValidator {
 
@@ -39,7 +37,5 @@ public class ProductValidator {
         private boolean isCountPositive(Product product){ return product.getProductCount() < 0; }
         private boolean isWeightBiggerThenZero(Product product){ return product.getWeight() < 0; }
         private boolean isNameEmpty(Product product){ return product.getProductName().isEmpty(); }
-
-
 
 }
